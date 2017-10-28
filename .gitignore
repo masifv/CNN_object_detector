@@ -1,0 +1,7 @@
+.idea/
+logs/
+VOCdevkit/
+model_checkpoints/
+train_data
+validation_data
+test_data
