@@ -9,10 +9,16 @@ import numpy as np
 from keras.applications.resnet50 import preprocess_input
 import xml.etree.ElementTree as et
 
-TRAIN_DATA_FILE = 'train_data'
-VALIDATION_DATA_FILE = 'validation_data'
-TEST_DATA_FILE = 'test_data'
+# module level variables
+IMAGES_FOLDER = "/home/masi/Projects/CNN_object_localizer/VOCdevkit/VOC2012/JPEGImages"
+META_DATA_FOLDER = "/home/masi/Projects/CNN_object_localizer/VOCdevkit/VOC2012/Annotations"
 
+INPUT_SHAPE = (540, 1024, 3)
+
+PREPROCESSED_DATA_DIR = "../preprocessed_data"
+TRAIN_DATA_FILE = PREPROCESSED_DATA_DIR + os.sep + "train_data"
+VALIDATION_DATA_FILE = PREPROCESSED_DATA_DIR + os.sep + "validation_data"
+TEST_DATA_FILE = PREPROCESSED_DATA_DIR + os.sep + "test_data"
 
 def get_data(images_folder: str, meta_data_folder: str):
     """Parse data from PASCAL VOC xml files"""
@@ -147,3 +153,7 @@ def prepare_dataset(images_folder: str, meta_data_folder: str,
 
     return train_data, validation_data, test_data
 
+
+# module level variables
+data = prepare_dataset(IMAGES_FOLDER, META_DATA_FOLDER, load=True, save=False)
+train_data, validation_data, test_data = data

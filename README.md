@@ -1,4 +1,4 @@
-# CNN_object_detector
+# CNN_object_localizer
 
 Object localization with ResNet50 architecture. Uses pre-trained features
 from imagenet (transfer learning).
